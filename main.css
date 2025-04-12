@@ -79,6 +79,12 @@ main {
     gap: 2rem;
 }
 
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
 .profile-image {
     width: 100%;
     max-width: 500px;
@@ -235,43 +241,6 @@ main {
     color: #80deea; /* Aqua blue */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    
-    .left-half {
-        width: 100%;
-        position: relative;
-        padding: 2rem 1rem;
-        min-height: 400px;
-    }
-    
-    .right-half {
-        width: 100%;
-        margin-left: 0;
-        padding: 2rem 1rem;
-    }
-    
-    .profile-image {
-        width: 40%;
-        max-width: 200px;
-    }
-    
-    .profile-links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-    }
-    
-    .link {
-        width: auto;
-        min-width: 120px;
-    }
-}
-
 /* Home Page Typing Effect */
 .typing, .typing2 {
     line-height: 1.2;
@@ -325,5 +294,110 @@ main {
 @keyframes hide-cursor {
     100% {
         border-right: transparent;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-half {
+        width: 100%;
+        position: relative;
+        padding: 2rem 1rem;
+        min-height: auto;
+        order: 2;
+    }
+
+    .right-half {
+        width: 100%;
+        margin-left: 0;
+        padding: 2rem 1rem;
+        order: 1;
+    }
+
+    .profile-image {
+        width: 40%;
+        max-width: 200px;
+        margin-bottom: 1rem;
+    }
+
+    .profile-section {
+        align-items: center;
+    }
+
+    .profile-links {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        justify-content: center;
+        width: 100%;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .link {
+        width: auto;
+        min-width: 120px;
+    }
+
+    .bio-header h1 {
+       font-size: 36px;
+    }
+
+    .bio-header h2 {
+       font-size: 18px;
+    }
+
+    /* Home Page Typing Effect */
+    .typing, .typing2 {
+        line-height: 1.2;
+        padding-bottom: 0.2em;
+        display: inline-block;
+        vertical-align: bottom;
+    }
+
+    .typing {
+        white-space: normal;
+        width: auto;
+        border-right: none;
+        animation: none;
+    }
+
+    .typing2 {
+        white-space: normal;
+        overflow: visible;
+        width: 100%;
+        border-right: none;
+        animation: none;
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    @keyframes blink {
+        from { border-color: transparent }
+        to { border-color: #00b8d4 } /* Bright teal ocean color */
+    }
+
+    @keyframes show-cursor {
+        0% {
+            border-right: transparent; /* Cursor is hidden initially */
+        }
+        100% {
+            border-right: 3px solid #00b8d4; /* Bright teal ocean color */
+        }
+    }
+
+    @keyframes hide-cursor {
+        100% {
+            border-right: transparent;
+        }
     }
 }
